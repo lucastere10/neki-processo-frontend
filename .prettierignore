@@ -1,0 +1,7 @@
+yarn.lock
+src/__test__
+/node_modules
+/.yarn/
+/.next/
+/build
+*.json

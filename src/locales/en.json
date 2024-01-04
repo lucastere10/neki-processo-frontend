@@ -1,0 +1,14 @@
+{
+  "login": {
+    "Login":"Login"
+  },
+  "register": {
+    "Register": "Register"
+  },
+  "skill":{
+    "Skill":"Skill"
+  },
+  "profile":{
+    "Profile":"Profile"
+  }
+}

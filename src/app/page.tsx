@@ -30,7 +30,7 @@ const Home: FC<unknown> = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNzA0NDIwMjAzLCJleHAiOjE3MDQ1MDY2MDN9.IO-lqWyzAZ3U2WKSxRc7xSE2a33fwT-FzsHWJ0HzJqE');
+    localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNzA0NDQwMTM3LCJleHAiOjE3MDQ1MjY1Mzd9.dHaKukXOxINGUfFFFOt_VNDD1s32WVUdj7TE4SQRFck');
     handleSearchSubmit();
     getProfileInfo();
   }, [triggerEdit]);

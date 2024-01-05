@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={openSans.className}>
         <Provider>
+          <div>
           {children}
+          </div>
         </Provider>
       </body>
     </html>

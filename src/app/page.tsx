@@ -1,10 +1,85 @@
 'use client';
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import ProfileInfo from '@/components/ProfileInfo';
+import { ProfileTable } from '@/components/Table/ProfileTable';
+import { NewProfileSkillModal } from '@/components/Modal/NewProfileSkillModal';
+import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
+import api from '@/services/api/api';
 
 const Home: FC<unknown> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  //const [searchInput, setSearchInput] = useState('');
+  const [profileSkills, setProfileSkills] = useState([]);
+  const [profile, setProfile] = useState<usuarioType>({
+    nome: '',
+    telefone: '',
+    email: '',
+    perfil: '',
+    dataCadastro: '',
+  });
+  const [triggerEdit, setTriggerEdit] = useState(false);
+  const { t, ready } = useTranslation('profile');
+  const router = useRouter();
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNzA0NDIwMjAzLCJleHAiOjE3MDQ1MDY2MDN9.IO-lqWyzAZ3U2WKSxRc7xSE2a33fwT-FzsHWJ0HzJqE');
+    handleSearchSubmit();
+    getProfileInfo();
+  }, [triggerEdit]);
+
+  const handleSearchSubmit = async () => {
+    try {
+      const response = await api.get(
+        `/api/perfilskills/user`
+      );
+      setProfileSkills(response.data);
+      console.log(response.data)
+    } catch (err) {
+      console.error('Error fetching data:', err);
+    }
+  };
+
+  const getProfileInfo = async () => {
+    try {
+      const response = await api.get(
+        `/api/usuarios/public`
+      );
+      setProfile(response.data);
+      console.log(response.data)
+    } catch (err) {
+      console.error('Error fetching data:', err);
+    }
+  };
+
+
   return (
-    <div>
-    </div>
+    <>
+      <div className="h-screen pt-6 flex-col dark:bg-background-dark p-16 mt-16">
+        <div className='mb-16'>
+          <ProfileInfo profileInfo={profile} />
+        </div>
+        <div>
+          <button onClick={openModal} className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>Adicionar</button>
+        </div>
+        <div>
+          <NewProfileSkillModal
+            triggerEdit={triggerEdit}
+            setTriggerEdit={setTriggerEdit}
+            isOpen={isModalOpen}
+            onClose={closeModal}
+          />
+          <ProfileTable profileSkills={profileSkills} setTriggerEdit={setTriggerEdit} triggerEdit={triggerEdit} />
+        </div>
+      </div>
+    </>
   );
 };
 

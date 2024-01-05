@@ -16,13 +16,13 @@ interface usuarioCreateType {
 }
 
 interface skillType {
+    skillId: number;
     skillNome: string;
     skillDescricao: string;
     skillUrl: string;
 };
 
 interface skillCreateType {
-    skillId: number;
     skillNome: string;
     skillDescricao: string;
     skillUrl: string;

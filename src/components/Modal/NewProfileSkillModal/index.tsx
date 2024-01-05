@@ -40,10 +40,6 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
         });
     };
 
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
-
     const closeModal = () => {
         reset({
             perfilSkillVersao: '',

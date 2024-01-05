@@ -21,7 +21,7 @@ interface ProfileTableRowProps {
 }
 
 interface SkillTableRowProps {
-    skill: any[];
+    skill: skillType;
     triggerEdit: boolean
     setTriggerEdit: (value: boolean) => void;
 }
@@ -30,6 +30,13 @@ interface SkillTableRowProps {
 // MODAIS
 
 interface NewProfileSkillModalProps {
+    isOpen: boolean;
+    triggerEdit: boolean
+    onClose: () => void;
+    setTriggerEdit: (value: boolean) => void;
+}
+
+interface NewSkillModalProps {
     isOpen: boolean;
     triggerEdit: boolean
     onClose: () => void;

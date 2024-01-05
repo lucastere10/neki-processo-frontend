@@ -1,6 +1,7 @@
 {
   "login": {
-    "Login":"Login"
+    "Login":"Login",
+    "SignInAccount":"Sign in to your account"
   },
   "register": {
     "Register": "Register"

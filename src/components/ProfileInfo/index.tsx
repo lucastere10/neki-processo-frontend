@@ -1,8 +1,14 @@
+// import { logout } from '@/services/auth/authService';
+import { signOut } from 'next-auth/react';
 import React, { FC } from 'react';
 
 const ProfileInfo: FC<ProfileInfoProps> = ({
     profileInfo
 }) => {
+
+    const handleLogout = () => {
+        signOut()
+    }
 
     return (
         <div className="flex flex-row gap-4 p-2">
@@ -16,8 +22,9 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
                 <div>
                     {profileInfo.email}
                 </div>
-                <div>
+                <div className='flex gap-2 items-center'>
                     {profileInfo.perfil}
+                    <button className='px-2 py-1 rounded-xl' onClick={handleLogout}>logout</button>
                 </div>
             </div>
         </div>

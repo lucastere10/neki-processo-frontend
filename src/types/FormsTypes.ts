@@ -7,12 +7,9 @@ interface usuarioType {
 }
 
 interface usuarioCreateType {
-    id: number;
     nome: string;
-    telefone: string;
+    senha: string;
     email: string;
-    perfil: string;
-    dataCadastro: string;
 }
 
 interface skillType {

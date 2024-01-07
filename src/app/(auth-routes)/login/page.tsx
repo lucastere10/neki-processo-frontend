@@ -1,5 +1,6 @@
 'use client';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, SyntheticEvent, useContext, useEffect, useState } from 'react';
+import { getSession, signIn } from "next-auth/react";
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { login } from '@/services/auth/authService';
@@ -9,22 +10,10 @@ import { useRouter } from 'next/navigation';
 
 const Login: FC<unknown> = () => {
   const { t, ready } = useTranslation('login');
-  const [email, setEmail] = useState(localStorage.getItem('email') || '');
-  const [password, setPassword] = useState(localStorage.getItem('password') || '');
-  const [rememberMe, setRememberMe] = useState(localStorage.getItem('rememberMe') === 'true');
+  const [email, setEmail] = useState<string>('');
+  const [senha, setSenha] = useState<string>('');
+  const [rememberMe, setRememberMe] = useState(false);
   const router = useRouter();
-
-
-  useEffect(() => {
-    if (rememberMe) {
-      localStorage.setItem('email', email);
-      localStorage.setItem('password', password);
-    } else {
-      localStorage.removeItem('email');
-      localStorage.removeItem('password');
-    }
-    localStorage.setItem('rememberMe', rememberMe.toString());
-  }, [email, password, rememberMe]);
 
   const {
     register,
@@ -36,19 +25,27 @@ const Login: FC<unknown> = () => {
     resolver: yupResolver(loginSchema)
   });
 
-  const onSubmit: SubmitHandler<LoginRequest> = data => {
-    requestLogin(data, rememberMe);
-  };
+  const onSubmit: SubmitHandler<LoginRequest> = async (data) => {
+    const res = await signIn('credentials', {
+      email: data.email,
+      senha: data.senha,
+      redirect: false,
+    })
 
-  const requestLogin = async (data: LoginRequest, rememberMe: boolean) => {
-    try {
-      const user = await login(data.email, data.senha, rememberMe);
-      alert("Login com Sucesso!")
-      router.push('/')
-    } catch (error) {
-      alert("Algo deu errado")
+    if (res?.error) {
+      console.log(res)
+      alert('Email ou senha incorretos')
+      return
+    } else {
+      const session = await getSession();
+      const token = session?.token;
+      console.log(session)
+      console.log(token)
+      router.replace('/profile')
+
     }
-  };
+};
+
 
   return (
     <div className='flex'>
@@ -62,37 +59,40 @@ const Login: FC<unknown> = () => {
                   {t('SignInAccount')}
                 </h1>
                 <form
+                  // onSubmit={handleSubmit}
                   onSubmit={handleSubmit(onSubmit)} onKeyDown={(e) => e.key === 'Enter' && e.preventDefault()}
                   className="space-y-4 md:space-y-6" action="#">
                   <div>
-                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                    <input
-                      type="email"
-                      {...register('email')}
-                      name="email"
-                      id="email"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com"
-                    />
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                     {errors.email && (
                       <p className="text-red-500 text-sm mb-1" tabIndex={0}>
                         {errors.email.message}
                       </p>
                     )}
+                    <input
+                      type="text"
+                      {...register('email')}
+                      name="email"
+                      id="email"
+                      // onChange={(e) => setEmail(e.target.value)}
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="lucas@mail.com"
+                    />
                   </div>
                   <div>
                     <label htmlFor="senha" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                    <input
-                      type="text"
-                      {...register('senha')}
-                      name="senha"
-                      id="senha"
-                      placeholder="••••••••"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     {errors.senha && (
                       <p className="text-red-500 text-sm mb-1" tabIndex={0}>
                         {errors.senha.message}
                       </p>
                     )}
+                    <input
+                      type="password"
+                      {...register('senha')}
+                      name="senha"
+                      id="senha"
+                      placeholder="••••••••"
+                      // onChange={(e) => setSenha(e.target.value)}
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-start">
@@ -114,7 +114,7 @@ const Login: FC<unknown> = () => {
                   </div>
                   <button type="submit" className="w-full text-white bg-light-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                    Don’t have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                    Não tem uma conta? <a onClick={() => { router.push('/register') }} className="font-medium text-primary-600 hover:underline dark:text-primary-500 cursor-pointer">Cadastre-se</a>
                   </p>
                 </form>
               </div>

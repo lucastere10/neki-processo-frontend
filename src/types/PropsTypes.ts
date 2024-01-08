@@ -1,5 +1,7 @@
 interface ProfileInfoProps {
-    profileInfo: usuarioType;
+    triggerEdit: boolean
+    setTriggerEdit: (value: boolean) => void;
+    profileInfo: usuarioInfoType;
 }
 
 interface ProfileTableProps {
@@ -41,4 +43,10 @@ interface NewSkillModalProps {
     triggerEdit: boolean
     onClose: () => void;
     setTriggerEdit: (value: boolean) => void;
+}
+
+// CARDS
+
+interface ProfileCardProps {
+    user: CardType
 }

@@ -44,10 +44,27 @@
     "Edit": "Edit",
     "Cancel": "Cancel",
     "NewSkill": "New Skill",
-    "Email":"Email",
-    "Phone":"Phone",
-    "ChooseSkill":"Choose a skill",
-    "Adress":"Adress"
+    "Email": "Email",
+    "Phone": "Phone",
+    "ChooseSkill": "Choose a skill",
+    "Adress": "Adress"
+  },
+  "users": {
+    "users": "Users",
+    "addFriend": "Add Friend",
+    "message": "Message",
+    "chooseSkill": "Choose a skill",
+    "version":"Version"
+  },
+  "about":{
+    "about":"About",
+    "skills":"Skills",
+    "aboutMe":"About Me",
+    "experience":"Last Experience",
+    "contact":"Contact",
+    "resume":"Resume",
+    "projects":"Projects",
+    "findMeOn":"Find Me on"
   },
   "home": {
     "title": "Skill+: Empowering You to Reach Your ",
@@ -55,10 +72,10 @@
     "subtitle": "Unlock your skills and talents with our comprehensive learning platform",
     "getStarted": "Get started",
     "learnMore": "Learn More",
-    "CallToAction": "Call To Action",
+    "CallToAction": "Unleash Your Potential",
     "HowItBegins": "How It Begins",
     "Motivations": "Motivations",
-    "CallToActionText": "Encourage visitors to get started with a clear call to action.",
+    "CallToActionText": "Join our community of learners and start mastering new skills today.",
     "HowItBeginsText": "Born out of a desire to make skill acquisition accessible and enjoyable.",
     "MotivationsText": "We believe that everyone has the potential to master any skill."
   },
@@ -66,6 +83,7 @@
     "home": "Home",
     "profile": "Profile",
     "skills": "Skills",
+    "users": "Users",
     "about": "About",
     "login": "Login",
     "getStarted": "Get Started"

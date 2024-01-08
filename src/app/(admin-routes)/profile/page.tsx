@@ -12,12 +12,14 @@ const Profile: FC<unknown> = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   //const [searchInput, setSearchInput] = useState('');
   const [profileSkills, setProfileSkills] = useState([]);
-  const [profile, setProfile] = useState<usuarioType>({
+  const [profile, setProfile] = useState<usuarioInfoType>({
+    id: 0,
     nome: '',
     telefone: '',
     email: '',
     perfil: '',
     dataCadastro: '',
+    senha: '',
   });
   const [triggerEdit, setTriggerEdit] = useState(false);
   const { t, ready } = useTranslation('profile');
@@ -60,9 +62,13 @@ const Profile: FC<unknown> = () => {
   return (
     <>
       <div className="h-screen pt-6 flex-col dark:bg-background-dark p-16 mt-4">
-        
+
         <div className='mb-10'>
-          <ProfileInfo profileInfo={profile} />
+          <ProfileInfo
+            profileInfo={profile}
+            triggerEdit={triggerEdit}
+            setTriggerEdit={setTriggerEdit}
+          />
         </div>
         <div>
           <button onClick={openModal} className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>{t('Add')}</button>

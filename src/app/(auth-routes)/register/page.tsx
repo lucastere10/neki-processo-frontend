@@ -7,6 +7,7 @@ import { handleStrongPassword } from '@/utils/validates';
 import { registerSchema } from '@/schemas/registerSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTheme } from 'next-themes';
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 import ToggleThemeLanguage from '@/components/ToggleThemeLanguage';
 
@@ -16,6 +17,9 @@ const Register: FC<unknown> = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const { theme, setTheme } = useTheme()
   const { t, ready } = useTranslation('register');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+
 
 
   const {
@@ -27,11 +31,9 @@ const Register: FC<unknown> = () => {
   });
 
   const onSubmit: SubmitHandler<usuarioCreateType> = data => {
-    console.log('teste')
     if (password !== confirmPassword) {
       alert("Senhas não coincidem!");
     } else {
-      console.log(data)
       createUser(data);
     }
   };
@@ -43,7 +45,6 @@ const Register: FC<unknown> = () => {
         email: data.email,
         senha: data.senha
       });
-      console.log(response.data);
       alert('Usuário registrado com sucesso!');
       router.push('/login')
     } catch (error) {
@@ -69,7 +70,7 @@ const Register: FC<unknown> = () => {
         <section className="bg-gray-50 dark:bg-gray-900">
           <div className="flex flex-col w-3/6 justify-center px-6 py-8 mx-auto md:h-screen lg:pb-32">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <div className='flex items-center gap-4'>
+              <div onClick={() => { router.push('/') }} className='cursor-pointer flex items-center gap-4'>
                 <img className='w-[90px]'
                   src={`${theme === 'dark' ? '/images/logo-dark.png' : '/images/logo-light.png'}`}
                   alt=""
@@ -120,22 +121,38 @@ const Register: FC<unknown> = () => {
                       {errors.senha.message}
                     </p>
                   )}
-                  <input
-                    type="password"
-                    {...register('senha')}
-                    onChange={e => setPassword(e.target.value)}
-                    id="password"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
+                  <div className='flex items-center relative'>
+                    <input
+                      type={isPasswordVisible ? "text" : "password"}
+                      {...register('senha')}
+                      onChange={e => setPassword(e.target.value)}
+                      id="password"
+                      placeholder="••••••••"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                    <div className='absolute inset-y-0 right-0 pr-3 flex items-center'>
+                      <a className='cursor-pointer' onClick={() => setIsPasswordVisible(!isPasswordVisible)}>
+                        {isPasswordVisible ? <IoMdEye size={28} color='#181818' /> : <IoMdEyeOff size={28} color='#181818' />}
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{t('ConfirmPassword')}</label>
-                  <input
-                    type="password"
-                    onChange={e => setConfirmPassword(e.target.value)}
-                    id="confirm-password"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
+                  <div className='flex items-center relative'>
+                    <input
+                      type={isConfirmPasswordVisible ? "text" : "password"}
+                      onChange={e => setConfirmPassword(e.target.value)}
+                      id="confirm-password"
+                      placeholder="••••••••"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                    <div className='absolute inset-y-0 right-0 pr-3 flex items-center'>
+                      <a className='cursor-pointer' onClick={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)}>
+                        {isConfirmPasswordVisible ? <IoMdEye size={28} color='#181818' /> : <IoMdEyeOff size={28} color='#181818' />}
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 <button type="submit" className="w-full text-white bg-light-primary hover:bg-light-secondary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">{t('CreateAccount')}</button>
               </form>

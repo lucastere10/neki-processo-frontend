@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { loginSchema } from '@/schemas/loginSchema';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 import ToggleThemeLanguage from '@/components/ToggleThemeLanguage';
 
@@ -18,6 +19,7 @@ const Login: FC<unknown> = () => {
   const router = useRouter();
   const { theme, setTheme } = useTheme()
   const { t, ready } = useTranslation('login');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const {
     register,
@@ -30,9 +32,11 @@ const Login: FC<unknown> = () => {
   });
 
   const onSubmit: SubmitHandler<LoginRequest> = async (data) => {
+    console.log('data: ',data)
     const res = await signIn('credentials', {
       email: data.email,
       senha: data.senha,
+      rememberMe: data.rememberMe,
       redirect: false,
     })
 
@@ -43,8 +47,9 @@ const Login: FC<unknown> = () => {
     } else {
       const session = await getSession();
       const token = session?.token;
-      console.log(session)
-      console.log(token)
+      console.log('res:', res)
+      console.log('session:', session)
+      console.log('token:', token)
       router.replace('/')
 
     }
@@ -66,7 +71,7 @@ const Login: FC<unknown> = () => {
         <section className="bg-gray-50 dark:bg-gray-900">
           <div className="flex flex-col w-3/6 justify-center px-6 py-8 mx-auto md:h-screen lg:pb-32">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <div className='flex items-center gap-4'>
+              <div onClick={() => { router.push('/') }} className='cursor-pointer flex items-center gap-4'>
                 <img className='w-[90px]'
                   src={`${theme === 'dark' ? '/images/logo-dark.png' : '/images/logo-light.png'}`}
                   alt=""
@@ -104,26 +109,32 @@ const Login: FC<unknown> = () => {
                       {errors.senha.message}
                     </p>
                   )}
-                  <input
-                    type="password"
-                    {...register('senha')}
-                    name="senha"
-                    id="senha"
-                    placeholder="••••••••"
-                    // onChange={(e) => setSenha(e.target.value)}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  <div className='flex items-center relative'>
+                    <input
+                      type={isPasswordVisible ? "text" : "password"}
+                      {...register('senha')}
+                      name="senha"
+                      id="senha"
+                      placeholder="••••••••"
+                      // onChange={(e) => setSenha(e.target.value)}
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                    <div className='absolute inset-y-0 right-0 pr-3 flex items-center'>
+                      <a className='cursor-pointer' onClick={() => setIsPasswordVisible(!isPasswordVisible)}>
+                        {isPasswordVisible ? <IoMdEye size={28} color='#181818' /> : <IoMdEyeOff size={28} color='#181818' />}
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
                       <input
-                        id="remember"
-                        value="false"
-                        checked={rememberMe}
-                        onChange={() => { setRememberMe(!rememberMe) }}
-                        aria-describedby="remember"
+                        id="rememberMe"
+                        {...register('rememberMe')}
                         type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" />
+                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                      />
                     </div>
                     <div className="ml-3 text-sm">
                       <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">{t('RememberMe')}</label>

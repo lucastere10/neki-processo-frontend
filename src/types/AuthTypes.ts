@@ -5,4 +5,5 @@ interface LoginResponse {
 interface LoginRequest {
     email: string;
     senha: string;
+    rememberMe: boolean;
 };

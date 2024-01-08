@@ -9,10 +9,16 @@ const nextAuthOptions: NextAuthOptions = {
             name: 'credentials',
             credentials: {
                 email: { label: 'email', type: 'text' },
-                senha: { label: 'senha', type: 'password' }
+                senha: { label: 'senha', type: 'password' },
+                rememberMe: { label: 'rememberMe', type: 'checkbox' }
             },
 
             async authorize(credentials, req) {
+
+                if (!credentials) {
+                    throw new Error('No credentials provided');
+                }
+                const rememberMe = credentials.rememberMe;
 
                 return api
                     .post(`/api/usuarios/login`, {
@@ -45,11 +51,12 @@ const nextAuthOptions: NextAuthOptions = {
             const rememberMe = token?.rememberMe;
             if (rememberMe) {
                 session.expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(); // 30 days
+            } else {
+                session.expires = new Date(Date.now() + 60 * 60 * 1000).toISOString(); // 1 hour
             }
             return session
         }
     }
-
 }
 
 const handler = NextAuth(nextAuthOptions)

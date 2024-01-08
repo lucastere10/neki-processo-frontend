@@ -46,6 +46,7 @@
     "NewSkill": "Nova Habilidade",
     "Email":"Email",
     "Phone":"Telefone",
+    "ChooseSkill":"Escolha uma habilidade",
     "Adress":"Endereço"
   },
   "home": {

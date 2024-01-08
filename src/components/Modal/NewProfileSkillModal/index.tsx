@@ -1,6 +1,6 @@
 'use client';
 import React, { FC, useEffect, useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import api from '@/services/api/api';
 import { useTranslation } from 'react-i18next';
@@ -21,7 +21,6 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
 
     const handleChange = (event: any) => {
         setSelectedValue(event.target.value);
-        console.log(event.target.value);
     };
 
     const {
@@ -29,6 +28,7 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
         handleSubmit,
         watch,
         reset,
+        control,
         formState: { errors }
     } = useForm<profileSkillCreateType>({
         resolver: yupResolver(profileSkillSchema)
@@ -52,8 +52,10 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
 
     useEffect(() => {
         getSkills();
+        reset({
+            skillNome: '',
+          });
     }, []);
-
 
     const getSkills = async () => {
         try {
@@ -75,7 +77,6 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
             });
             console.log('Response data:', response.data);
             alert('HABILIDADE CADASTRADA COM SUCESSO!');
-            alert(data.skillNome)
             setIsModalOpen(false);
             setTriggerEdit(!triggerEdit);
             onClose();
@@ -110,21 +111,25 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
                                     >
                                         {t('Skill')}
                                     </label>
-                                    <select
-                                        {...register('skillNome')}
-                                        value={selectedValue}
-                                        onChange={handleChange}
-                                        className="max-w-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-input-bg-dark dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-primary"
-                                        id="skills"
-                                        name="skills"
-                                        tabIndex={0}
-                                    >
-                                        {Object.values(skills).map((skill: skillType) => (
-                                            <option value={skill.skillNome} key={skill.skillNome} tabIndex={0}>
-                                                {skill.skillNome}
-                                            </option>
-                                        ))}
-                                    </select>
+                                    <Controller
+                                        name="skillNome"
+                                        control={control}
+                                        render={({ field }) => (
+                                            <select
+                                                {...field}
+                                                className="max-w-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-input-bg-dark dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-primary"
+                                                id="skills"
+                                                tabIndex={0}
+                                            >
+                                                <option value="">{t('ChooseSkill')}</option>
+                                                {Object.values(skills).map((skill: skillType) => (
+                                                    <option value={skill.skillNome} key={skill.skillNome} tabIndex={0}>
+                                                        {skill.skillNome}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        )}
+                                    />
                                     <div className="mt-3">
                                         <div className="flex">
                                             <label

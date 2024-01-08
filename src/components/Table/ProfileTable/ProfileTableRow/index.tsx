@@ -3,6 +3,7 @@ import { MdModeEdit, MdClose, MdCheck, MdDelete } from 'react-icons/md';
 import api from '@/services/api/api';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+
 export const ProfileTableRow: FC<ProfileTableRowProps> = ({
   profileSkill,
   triggerEdit,
@@ -21,10 +22,10 @@ export const ProfileTableRow: FC<ProfileTableRowProps> = ({
         }
       );
 
-      alert('HABILIDADE ATUALIZADA COM SUCESSO!');
+      //window.location.reload(); // Refresh the page
+      alert('Habilidade Atualizada com Sucesso!');
       setIsEditOpen(false);
       setTriggerEdit(!triggerEdit);
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -35,8 +36,7 @@ export const ProfileTableRow: FC<ProfileTableRowProps> = ({
       const response = await api.delete(
         `/api/perfilskills/${perfilSkillId}`
       );
-      console.log('Evento deletado:', response);
-      alert('HABILIDADE DELETADA COM SUCESSO!');
+      alert('Habilidade Deletada com Sucesso.');
       setTriggerEdit(!triggerEdit);
       setIsEditOpen(false);
       setIsDeleteModalOpen(!isDeleteModalOpen);

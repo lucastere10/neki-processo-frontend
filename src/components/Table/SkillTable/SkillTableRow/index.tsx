@@ -25,11 +25,9 @@ export const SkillTableRow: FC<SkillTableRowProps> = ({
                     skillUrl: data.skillUrl
                 }
             );
-
-            alert('HABILIDADE ATUALIZADA COM SUCESSO!');
+            alert('Habilidade Atualizada com Sucesso!');
             setIsEditOpen(false);
             setTriggerEdit(!triggerEdit);
-            console.log(response);
         } catch (err) {
             console.log(err);
         }
@@ -40,8 +38,7 @@ export const SkillTableRow: FC<SkillTableRowProps> = ({
             const response = await api.delete(
                 `/api/skills/${skillId}`
             );
-            console.log('Evento deletado:', response);
-            alert('HABILIDADE DELETADA COM SUCESSO!');
+            alert('Habilidade Deletada Com Sucesso.');
             setTriggerEdit(!triggerEdit);
             setIsEditOpen(false);
             setIsDeleteModalOpen(!isDeleteModalOpen);

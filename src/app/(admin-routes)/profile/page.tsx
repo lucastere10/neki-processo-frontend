@@ -41,7 +41,6 @@ const Profile: FC<unknown> = () => {
         `/api/perfilskills/user`
       );
       setProfileSkills(response.data);
-      console.log(response.data)
     } catch (err) {
       console.error('Error fetching data:', err);
     }
@@ -53,18 +52,10 @@ const Profile: FC<unknown> = () => {
         `/api/usuarios/public`
       );
       setProfile(response.data);
-      console.log(response.data)
     } catch (err) {
       console.error('Error fetching data:', err);
     }
   };
-
-  const getToken = async () => {
-    const session = await getSession();
-    const token = session?.token;
-    console.log(session?.token)
-    console.log(session?.usuario)
-  }
 
   return (
     <>

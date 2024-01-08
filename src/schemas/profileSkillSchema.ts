@@ -1,7 +1,10 @@
 import * as yup from 'yup';
 
 export const profileSkillSchema = yup.object().shape({
+    skillNome: yup
+        .string()
+        .required('Defina a habilidade'),
     perfilSkillVersao: yup
         .string()
-        .required('Todos os campos obrigatórios devem ser preenchidos!'),
+        .required('Defina a versão da habilidade'),
 });

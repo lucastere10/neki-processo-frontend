@@ -1,15 +1,72 @@
 {
   "login": {
-    "Login":"Login",
-    "SignInAccount":"Sign in to your account"
+    "Login": "Login",
+    "SignIn": "Sign In",
+    "Title": "Empowering You to Reach Your Full Potential.",
+    "Email": "Email",
+    "Password": "Password",
+    "RememberMe": "Remember me",
+    "ForgotPassword": "Forgot Password?",
+    "DontHaveAnAccount": "Dont have an account?",
+    "SignUp": "Sign Up",
+    "RegisterHere": "Register Here"
   },
   "register": {
-    "Register": "Register"
+    "Register": "Register",
+    "SignUp": "Sign Up",
+    "title": "Empowering You to Reach Your Full Potential.",
+    "Name": "Your Name",
+    "Email": "Your Email",
+    "Password": "Password",
+    "ConfirmPassword": "Confirm Password",
+    "CreateAccount": "Create Account",
+    "HaveAnAccount": "Have an account?",
+    "SignIn": "Sign In"
   },
-  "skill":{
-    "Skill":"Skill"
+  "skill": {
+    "Skill": "Skill",
+    "Add": "Add",
+    "Name": "Name",
+    "Description": "Description",
+    "Image": "Image",
+    "Edit": "Edit",
+    "Cancel": "Cancel",
+    "NewSkill": "New Skill"
   },
-  "profile":{
-    "Profile":"Profile"
+  "profile": {
+    "Profile": "Profile",
+    "Skill": "Skill",
+    "Version": "Version",
+    "Add": "Add",
+    "Name": "Name",
+    "Description": "Description",
+    "Image": "Image",
+    "Edit": "Edit",
+    "Cancel": "Cancel",
+    "NewSkill": "New Skill",
+    "Email":"Email",
+    "Phone":"Phone",
+    "Adress":"Adress"
+  },
+  "home": {
+    "title": "Skill+: Empowering You to Reach Your ",
+    "titleAnchor": "Full Potential.",
+    "subtitle": "Unlock your skills and talents with our comprehensive learning platform",
+    "getStarted": "Get started",
+    "learnMore": "Learn More",
+    "CallToAction": "Call To Action",
+    "HowItBegins": "How It Begins",
+    "Motivations": "Motivations",
+    "CallToActionText": "Encourage visitors to get started with a clear call to action.",
+    "HowItBeginsText": "Born out of a desire to make skill acquisition accessible and enjoyable.",
+    "MotivationsText": "We believe that everyone has the potential to master any skill."
+  },
+  "header": {
+    "home": "Home",
+    "profile": "Profile",
+    "skills": "Skills",
+    "about": "About",
+    "login": "Login",
+    "getStarted": "Get Started"
   }
 }

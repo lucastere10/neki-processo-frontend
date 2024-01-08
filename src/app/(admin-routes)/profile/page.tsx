@@ -68,13 +68,13 @@ const Profile: FC<unknown> = () => {
 
   return (
     <>
-      <div className="h-screen pt-6 flex-col dark:bg-background-dark p-16 mt-16">
-        <div className='mb-16'>
+      <div className="h-screen pt-6 flex-col dark:bg-background-dark p-16 mt-4">
+        
+        <div className='mb-10'>
           <ProfileInfo profileInfo={profile} />
-          <button onClick={getToken}>teste</button>
         </div>
         <div>
-          <button onClick={openModal} className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>Adicionar</button>
+          <button onClick={openModal} className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>{t('Add')}</button>
         </div>
         <div>
           <NewProfileSkillModal

@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import api from '@/services/api/api';
 import { useTranslation } from 'react-i18next';
 import { profileSkillSchema } from '@/schemas/profileSkillSchema';
+import ToggleThemeLanguage from '@/components/ToggleThemeLanguage';
 
 export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
     isOpen,
@@ -15,7 +16,7 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
     const [skills, setSkills] = useState([])
-    const { t, ready } = useTranslation('modalEventos');
+    const { t, ready } = useTranslation('profile');
     const [selectedValue, setSelectedValue] = useState('');
 
     const handleChange = (event: any) => {
@@ -94,25 +95,26 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
                         // aria-hidden="true"
                         className="fixed top-0 right-0 left-0 bottom-0 z-50 flex items-center justify-center bg-gray-500 bg-opacity-50"
                     >
-                        <div className="relative w-11/12 max-w-4xl max-h-4/5 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-background-dark">
-                            {/* ... (conteúdo do modal) */}
-                            <div tabIndex={0} aria-label="Janela de Cadastro de Habilidades">
-                                <h1>Nova Habilidade</h1>
-                            </div>
-                            <div className=" text-xl h-full pl-16 pr-3 py-3 mt-4 overflow-y-auto bg-white dark:bg-background-dark">
+                        {/* ... (conteúdo do modal) */}
+                        <div className="relative w-4/12 max-w-4xl max-h-4/5 overflow-hidden bg-light-background dark:bg-dark-background rounded-lg shadow-lg dark:bg-background-dark">
+                            <div className="text-xl h-full pl-16 pr-3 py-3 mt-4 overflow-y-auto bg-light-background dark:bg-dark-background dark:bg-background-dark">
+                                <div className='flex items-center justify-between mb-4' tabIndex={0} aria-label="Janela de Cadastro de Habilidades">
+                                    <h1 className='font-bold'>{t('NewSkill')}</h1>
+                                    <ToggleThemeLanguage />
+                                </div>
                                 <div>
                                     <label
                                         htmlFor="skills"
                                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         tabIndex={0}
                                     >
-                                        {t('Duration Period')}
+                                        {t('Skill')}
                                     </label>
                                     <select
                                         {...register('skillNome')}
                                         value={selectedValue}
                                         onChange={handleChange}
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-input-bg-dark dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-primary"
+                                        className="max-w-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-input-bg-dark dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-primary"
                                         id="skills"
                                         name="skills"
                                         tabIndex={0}
@@ -130,7 +132,7 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
                                                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                                 tabIndex={0}
                                             >
-                                                {t('Version')}*
+                                                {t('Version')}
                                             </label>
                                         </div>
                                         <input
@@ -139,7 +141,7 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
                                             id="SkillVersao"
                                             className="max-w-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-input-bg-dark dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-primary"
                                             placeholder={t(
-                                                'Enter the name of the event to be registered'
+                                                'Digite a Versão'
                                             )}
                                             tabIndex={0}
                                         />
@@ -150,9 +152,9 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
                                         )}
                                     </div>
                                 </div>
-                                <div className="p-4 mt-4 flex gap-4 justify-end">
-                                    <button type='button' onClick={closeModal} className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>Cancelar</button>
-                                    <button type='submit' className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>Adicionar</button>
+                                <div className="p-4 mt-4 flex gap-4 justify-start">
+                                    <button type='button' onClick={closeModal} className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>{t('Cancel')}</button>
+                                    <button type='submit' className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>{t('Add')}</button>
                                 </div>
                             </div>
                         </div>

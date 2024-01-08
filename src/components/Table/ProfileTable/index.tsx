@@ -7,7 +7,7 @@ export const ProfileTable: FC<ProfileTableProps> = ({
   setTriggerEdit,
   triggerEdit,
 }) => {
-  const { t, ready } = useTranslation('eventos');
+  const { t, ready } = useTranslation('profile');
 
   // if (!ready) {
   //   return <div>Loading...</div>;

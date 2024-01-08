@@ -1,15 +1,72 @@
 {
   "login": {
-    "Login":"Login",
-    "SignInAccount":"Entrar com sua conta"
+    "Login": "Entrar",
+    "SignIn": "Entrar",
+    "Title": "Capacitando você para alcançar seu potencial máximo.",
+    "Email": "Email",
+    "Password": "Senha",
+    "RememberMe": "Lembrar de mim",
+    "ForgotPassword": "Esqueceu a senha",
+    "DontHaveAnAccount": "Não tem uma conta?",
+    "SignUp": "Inscrever-se",
+    "RegisterHere": "Registre-se aqui"
   },
   "register": {
-    "Register": "Cadastrar"
+    "Register": "Registrar",
+    "SignUp": "Inscrever-se",
+    "title": "Capacitando você para alcançar seu potencial máximo.",
+    "Name": "Nome",
+    "Email": "Email",
+    "Password": "Senha",
+    "ConfirmPassword": "Confirmar senha",
+    "CreateAccount": "Criar conta",
+    "HaveAnAccount": "Possui uma conta?",
+    "SignIn": "Entrar"
   },
-  "skill":{
-    "Skill":"Skill"
+  "skill": {
+    "Skill": "Habilidade",
+    "Add": "Adicionar",
+    "Name": "Nome",
+    "Description": "Descrição",
+    "Image": "Imagem",
+    "Edit": "Editar",
+    "Cancel": "Cancelar",
+    "NewSkill": "Nova Habilidade"
   },
-  "profile":{
-    "Profile":"Perfil"
+  "profile": {
+    "Profile": "Perfil",
+    "Skill": "Habilidade",
+    "Version": "Versão",
+    "Add": "Adicionar",
+    "Name": "Nome",
+    "Description": "Descrição",
+    "Image": "Imagem",
+    "Edit": "Editar",
+    "Cancel": "Cancelar",
+    "NewSkill": "Nova Habilidade",
+    "Email":"Email",
+    "Phone":"Telefone",
+    "Adress":"Endereço"
+  },
+  "home": {
+    "title": "Skill+: Capacitando você para alcançar seu ",
+    "titleAnchor": "Máximo Potencial.",
+    "subtitle": "Desbloqueie suas habilidades e talentos com nossa plataforma de aprendizado abrangente",
+    "getStarted": "Comece agora",
+    "learnMore": "Saiba mais",
+    "CallToAction": "Chamada para ação",
+    "HowItBegins": "Como começou",
+    "Motivations": "Motivações",
+    "CallToActionText": "Incentive os visitantes a começar com uma chamada clara para ação.",
+    "HowItBeginsText": "Nasceu do desejo de tornar a aquisição de habilidades acessível e agradável.",
+    "MotivationsText": "Acreditamos que todos têm o potencial de dominar qualquer habilidade."
+  },
+  "header": {
+    "home": "Home",
+    "profile": "Perfil",
+    "skills": "Habilidades",
+    "about": "Sobre",
+    "login": "Login",
+    "getStarted": "Cadastrar"
   }
 }

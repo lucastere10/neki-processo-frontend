@@ -3,7 +3,8 @@ import React from 'react';
 import './styles/globals.css';
 import { Provider } from '@/components/ThemeProvider/Provider';
 import NextAuthSessionProvider from '@/providers/sessionProvider';
-import { Header } from '@/components/Header';
+import { HeaderPage } from '@/components/Header/WithHeader';
+import '@/lib/i18n';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -23,7 +24,7 @@ export default function RootLayout({
         <NextAuthSessionProvider>
           <Provider>
             <div>
-              <Header titulo='main page' />
+              <HeaderPage />
               {children}
             </div>
           </Provider>

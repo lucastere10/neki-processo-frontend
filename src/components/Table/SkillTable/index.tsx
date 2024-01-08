@@ -7,7 +7,7 @@ export const SkillTable: FC<SkillTableProps> = ({
     setTriggerEdit,
     triggerEdit,
   }) => {
-    const { t, ready } = useTranslation('eventos');
+    const { t, ready } = useTranslation('skill');
 
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">

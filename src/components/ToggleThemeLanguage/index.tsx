@@ -32,7 +32,7 @@ const ToggleThemeLanguage: React.FC = () => {
           tabIndex={0}
           aria-label="ícone referente ao idioma"
         />
-        {/* {currentLanguage.toUpperCase()} */}
+        {currentLanguage.toUpperCase()}
       </button>
       <div className="flex items-center gap-3 my-2 justify-between">
         <label className="relative inline-flex items-center cursor-pointer">

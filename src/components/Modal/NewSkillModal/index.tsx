@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import api from '@/services/api/api';
 import { useTranslation } from 'react-i18next';
 import { skillSchema } from '@/schemas/skillSchema';
+import ToggleThemeLanguage from '@/components/ToggleThemeLanguage';
 
 
 export const NewSkillModal: FC<NewSkillModalProps> = ({
@@ -15,7 +16,7 @@ export const NewSkillModal: FC<NewSkillModalProps> = ({
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
-    const { t, ready } = useTranslation('modalEventos');
+    const { t, ready } = useTranslation('skill');
 
     const {
         register,
@@ -75,12 +76,13 @@ export const NewSkillModal: FC<NewSkillModalProps> = ({
                         // aria-hidden="true"
                         className="fixed top-0 right-0 left-0 bottom-0 z-50 flex items-center justify-center bg-gray-500 bg-opacity-50"
                     >
-                        <div className="relative w-11/12 max-w-4xl max-h-4/5 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-background-dark">
-                            {/* ... (conteúdo do modal) */}
-                            <div tabIndex={0} aria-label="Janela de Cadastro de Habilidades">
-                                <h1>Nova Habilidade</h1>
+                        {/* ... (conteúdo do modal) */}
+                        <div className="relative w-4/12 max-w-4xl max-h-4/5 overflow-hidden bg-light-background dark:bg-dark-background rounded-lg shadow-lg dark:bg-background-dark">
+                            <div className=" text-xl h-full pl-16 pr-3 py-3 mt-4 overflow-y-auto bg-light-background dark:bg-dark-background">
+                            <div className='flex items-center justify-between mb-4' tabIndex={0} aria-label="Janela de Cadastro de Habilidades">
+                                <h1 className='font-bold'>{t('NewSkill')}</h1>
+                                <ToggleThemeLanguage />
                             </div>
-                            <div className=" text-xl h-full pl-16 pr-3 py-3 mt-4 overflow-y-auto bg-white dark:bg-background-dark">
                                 <div>
                                     <div className="mt-3">
                                         <div className="flex">
@@ -89,7 +91,7 @@ export const NewSkillModal: FC<NewSkillModalProps> = ({
                                                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                                 tabIndex={0}
                                             >
-                                                {t('Name')}*
+                                                {t('Name')}
                                             </label>
                                         </div>
                                         <input
@@ -115,7 +117,7 @@ export const NewSkillModal: FC<NewSkillModalProps> = ({
                                                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                                 tabIndex={0}
                                             >
-                                                {t('Desc')}*
+                                                {t('Description')}
                                             </label>
                                         </div>
                                         <input
@@ -141,7 +143,7 @@ export const NewSkillModal: FC<NewSkillModalProps> = ({
                                                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                                 tabIndex={0}
                                             >
-                                                {t('Url')}*
+                                                {t('Image')}
                                             </label>
                                         </div>
                                         <input
@@ -162,8 +164,8 @@ export const NewSkillModal: FC<NewSkillModalProps> = ({
                                     </div>
                                 </div>
                                 <div className="p-4 mt-4 flex gap-4 justify-end">
-                                    <button type='button' onClick={closeModal} className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>Cancelar</button>
-                                    <button type='submit' className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>Adicionar</button>
+                                    <button type='button' onClick={closeModal} className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>{t('Cancel')}</button>
+                                    <button type='submit' className='py-2 px-4 mb-4 rounded-lg bg-light-primary text-white '>{t('NewSkill')}</button>
                                 </div>
                             </div>
                         </div>

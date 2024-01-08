@@ -1,0 +1,91 @@
+{
+  "login": {
+    "Login": "Login",
+    "SignIn": "Sign In",
+    "Title": "Empowering You to Reach Your Full Potential.",
+    "Email": "Email",
+    "Password": "Password",
+    "RememberMe": "Remember me",
+    "ForgotPassword": "Forgot Password?",
+    "DontHaveAnAccount": "Dont have an account?",
+    "SignUp": "Sign Up",
+    "RegisterHere": "Register Here"
+  },
+  "register": {
+    "Register": "Register",
+    "SignUp": "Sign Up",
+    "title": "Empowering You to Reach Your Full Potential.",
+    "Name": "Your Name",
+    "Email": "Your Email",
+    "Password": "Password",
+    "ConfirmPassword": "Confirm Password",
+    "CreateAccount": "Create Account",
+    "HaveAnAccount": "Have an account?",
+    "SignIn": "Sign In"
+  },
+  "skill": {
+    "Skill": "Skill",
+    "Add": "Add",
+    "Name": "Name",
+    "Description": "Description",
+    "Image": "Image",
+    "Edit": "Edit",
+    "Cancel": "Cancel",
+    "NewSkill": "New Skill"
+  },
+  "profile": {
+    "Profile": "Profile",
+    "Skill": "Skill",
+    "Version": "Version",
+    "Add": "Add",
+    "Name": "Name",
+    "Description": "Description",
+    "Image": "Image",
+    "Edit": "Edit",
+    "Cancel": "Cancel",
+    "NewSkill": "New Skill",
+    "Email": "Email",
+    "Phone": "Phone",
+    "ChooseSkill": "Choose a skill",
+    "Adress": "Adress"
+  },
+  "users": {
+    "users": "Users",
+    "addFriend": "Add Friend",
+    "message": "Message",
+    "chooseSkill": "Choose a skill",
+    "version":"Version"
+  },
+  "about":{
+    "about":"About",
+    "skills":"Skills",
+    "aboutMe":"About Me",
+    "experience":"Last Experience",
+    "contact":"Contact",
+    "resume":"Resume",
+    "projects":"Projects",
+    "findMeOn":"Find Me on"
+  },
+  "home": {
+    "title": "Skill+: Empowering You to Reach Your ",
+    "titleAnchor": "Full Potential.",
+    "subtitle": "Unlock your skills and talents with our comprehensive learning platform",
+    "getStarted": "Get started",
+    "learnMore": "Learn More",
+    "CallToAction": "Unleash Your Potential",
+    "HowItBegins": "How It Begins",
+    "Motivations": "Motivations",
+    "CallToActionText": "Join our community of learners and start mastering new skills today.",
+    "HowItBeginsText": "Born out of a desire to make skill acquisition accessible and enjoyable.",
+    "MotivationsText": "We believe that everyone has the potential to master any skill."
+  },
+  "header": {
+    "home": "Home",
+    "profile": "Profile",
+    "skills": "Skills",
+    "users": "Users",
+    "about": "About",
+    "login": "Login",
+    "getStarted": "Get Started"
+  }
+}

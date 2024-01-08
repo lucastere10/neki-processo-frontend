@@ -48,7 +48,6 @@ const About: FC<unknown> = () => {
                                 <span className="text-gray-700 uppercase font-bold tracking-wider mb-2 dark:text-white">{t('skills')}</span>
                                 <ul>
                                     <li className="mb-2">Python</li>
-                                    <li className="mb-2">Python</li>
                                     <li className="mb-2">Django</li>
                                     <li className="mb-2">Java</li>
                                     <li className="mb-2">JavaScript</li>

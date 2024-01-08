@@ -76,7 +76,7 @@ export const NewProfileSkillModal: FC<NewProfileSkillModalProps> = ({
                 skillNome: data.skillNome,
             });
             console.log('Response data:', response.data);
-            alert('HABILIDADE CADASTRADA COM SUCESSO!');
+            alert('Habilidade Cadastrada com sucesso!');
             setIsModalOpen(false);
             setTriggerEdit(!triggerEdit);
             onClose();

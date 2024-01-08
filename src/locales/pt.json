@@ -44,10 +44,27 @@
     "Edit": "Editar",
     "Cancel": "Cancelar",
     "NewSkill": "Nova Habilidade",
-    "Email":"Email",
-    "Phone":"Telefone",
-    "ChooseSkill":"Escolha uma habilidade",
-    "Adress":"Endereço"
+    "Email": "Email",
+    "Phone": "Telefone",
+    "ChooseSkill": "Escolha uma habilidade",
+    "Adress": "Endereço"
+  },
+  "users": {
+    "users": "Usuários",
+    "addFriend": "Adicionar",
+    "message": "Mensagem",
+    "chooseSkill": "Escolha uma habilidade",
+    "version":"Versão"
+  },
+  "about":{
+    "about":"Sobre",
+    "skills":"Habilidades",
+    "aboutMe":"Sobre Mim",
+    "experience":"Ultima Experiência",
+    "contact":"Contato",
+    "resume":"Portfolio",
+    "projects":"Projetos",
+    "findMeOn":"Entre em contato"
   },
   "home": {
     "title": "Skill+: Capacitando você para alcançar seu ",
@@ -55,10 +72,10 @@
     "subtitle": "Desbloqueie suas habilidades e talentos com nossa plataforma de aprendizado abrangente",
     "getStarted": "Comece agora",
     "learnMore": "Saiba mais",
-    "CallToAction": "Chamada para ação",
+    "CallToAction": "Liberte o Seu Potencial",
     "HowItBegins": "Como começou",
     "Motivations": "Motivações",
-    "CallToActionText": "Incentive os visitantes a começar com uma chamada clara para ação.",
+    "CallToActionText": "Junte-se à nossa comunidade de aprendizes e comece a dominar novas habilidades hoje.",
     "HowItBeginsText": "Nasceu do desejo de tornar a aquisição de habilidades acessível e agradável.",
     "MotivationsText": "Acreditamos que todos têm o potencial de dominar qualquer habilidade."
   },
@@ -66,6 +83,7 @@
     "home": "Home",
     "profile": "Perfil",
     "skills": "Habilidades",
+    "users": "Usuários",
     "about": "Sobre",
     "login": "Login",
     "getStarted": "Cadastrar"

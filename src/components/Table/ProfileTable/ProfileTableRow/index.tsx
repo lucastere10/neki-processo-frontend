@@ -26,7 +26,8 @@ export const ProfileTableRow: FC<ProfileTableRowProps> = ({
       alert('Habilidade Atualizada com Sucesso!');
       setIsEditOpen(false);
       setTriggerEdit(!triggerEdit);
-    } catch (err) {
+    } catch (err: any) {
+      alert(err.response.data.message);
       console.log(err);
     }
   };

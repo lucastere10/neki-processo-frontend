@@ -14,6 +14,7 @@ export const SkillTableRow: FC<SkillTableRowProps> = ({
     const [skillNome, setSkillNome] = useState(skill.skillNome)
     const [skillDescricao, setSkillDescricao] = useState(skill.skillDescricao)
     const [skillUrl, setSkillUrl] = useState(skill.skillUrl)
+    const [showImagePopover, setShowImagePopover] = useState(false);
 
     const atualizarEvento = async (data: skillType, skillId: number) => {
         try {
@@ -186,8 +187,30 @@ export const SkillTableRow: FC<SkillTableRowProps> = ({
             <td className="px-6 py-4" tabIndex={0}>
                 {skill.skillDescricao}
             </td>
-            <td className="px-6 py-4" tabIndex={0}>
-                {skill.skillUrl}
+            <td className="px-6 py-4 cursor-pointer max-w-[100px] relative"
+                tabIndex={0}
+                onClick={() => setShowImagePopover(!showImagePopover)}
+            >
+                <div className="relative">
+                    <p className="truncate ..." tabIndex={0}>
+                        {skill.skillUrl}
+                    </p>
+                    {/* Image Popover */}
+                    {showImagePopover && (
+                        <div className="absolute top-0 z-50 p-2 mt-2 text-sm bg-white dark:bg-gray-800 dark:text-white border border-gray-200 rounded-lg shadow-sm">
+                            <h3 className="font-semibold" tabIndex={0}>
+                                Imagem:
+                            </h3>
+                            <img
+                                src={skill.skillUrl}
+                                alt="Imagem"
+                                className="max-w-full h-auto"
+                                aria-label="arquivo de imagem referente a habildiade"
+                                tabIndex={0}
+                            />
+                        </div>
+                    )}
+                </div>
             </td>
             <td className="px-6 py-4">
                 <button

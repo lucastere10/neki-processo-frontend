@@ -24,3 +24,20 @@ Abra http://localhost:3000 com o seu navegador para ver o resultado.
 ## Contribuição
 
 Contribuições são sempre bem-vindas.
+
+## Telas
+
+<img src="./public/images/home-light.png">
+<br>
+
+<img src="./public/images/home-dark.png">
+<br>
+
+<img src="./public/images/login-light.png">
+<br>
+
+<img src="./public/images/login-dark.png">
+<br>
+
+
+

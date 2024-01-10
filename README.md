@@ -1,3 +1,5 @@
+<img src="./public/images/logo.png.png">
+
 # SKILL+ Frontend
 
 Este projeto foi criado para um processo seletivo. É um CRUD de habilidades onde um usuário pode adicionar habilidades ao seu perfil com uma versão específica e adicionar outros tipos de habilidades.

@@ -12,6 +12,7 @@ export const ProfileTableRow: FC<ProfileTableRowProps> = ({
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [profileSkillVersion, setProfileSkillVersion] = useState(profileSkill.perfilSkillVersao)
+  const [showImagePopover, setShowImagePopover] = useState(false);
 
   const atualizarEvento = async (data: profileSkillType, perfilSkillId: number) => {
     try {
@@ -168,8 +169,30 @@ export const ProfileTableRow: FC<ProfileTableRowProps> = ({
       <td className="px-6 py-4" tabIndex={0}>
         {profileSkill.perfilSkillVersao}
       </td>
-      <td className="px-6 py-4" tabIndex={0}>
-        {profileSkill.skill.skillUrl}
+      <td className="px-6 py-4 cursor-pointer max-w-[100px] relative"
+        tabIndex={0}
+        onClick={() => setShowImagePopover(!showImagePopover)}
+      >
+        <div className="relative">
+          <p className="truncate ..." tabIndex={0}>
+            {profileSkill.skill.skillUrl}
+          </p>
+          {/* Image Popover */}
+          {showImagePopover && (
+            <div className="absolute top-0 z-50 p-2 mt-2 text-sm bg-white dark:bg-gray-800 dark:text-white border border-gray-200 rounded-lg shadow-sm">
+              <h3 className="font-semibold" tabIndex={0}>
+                Imagem:
+              </h3>
+              <img
+                src={profileSkill.skill.skillUrl}
+                alt="Imagem"
+                className="max-w-full h-auto"
+                aria-label="arquivo de imagem referente a habildiade"
+                tabIndex={0}
+              />
+            </div>
+          )}
+        </div>
       </td>
       <td className="px-6 py-4">
         <button

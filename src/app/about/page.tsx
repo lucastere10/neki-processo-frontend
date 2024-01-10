@@ -24,23 +24,23 @@ const About: FC<unknown> = () => {
                                         {t('findMeOn')}
                                     </h3>
                                     <div className="flex justify-center items-center gap-6">
-                                        <a className="text-gray-700 dark:text-white hover:text-orange-600" aria-label="Visit TrendyMinds LinkedIn" href="https://www.linkedin.com/in/lucas-caldas50/"
+                                        <a className="text-gray-700 dark:text-white hover:text-orange-600" aria-label="Visit LinkedIn" href="https://www.linkedin.com/in/lucas-caldas50/"
                                             target="_blank">
                                             <FaLinkedinIn size={24} />
                                         </a>
-                                        <a className="text-gray-700 dark:text-white hover:text-orange-600" aria-label="Visit TrendyMinds Facebook" href="https://www.instagram.com/lucas.mcaldas/"
+                                        <a className="text-gray-700 dark:text-white hover:text-orange-600" aria-label="Visit Facebook" href="https://www.instagram.com/lucas.mcaldas/"
                                             target="_blank">
                                             <FaInstagram size={24} />
                                         </a>
-                                        <a className="text-gray-700 dark:text-white hover:text-orange-600" aria-label="Visit TrendyMinds Instagram" href="https://github.com/lucastere10"
+                                        <a className="text-gray-700 dark:text-white hover:text-orange-600" aria-label="Visit Instagram" href="https://github.com/lucastere10"
                                             target="_blank">
                                             <FaGithub size={24} />
                                         </a>
                                     </div>
                                 </div>
                                 <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                                    <a href="https://www.linkedin.com/in/lucas-caldas50/" className="bg-light-primary dark:bg-dark-primary hover:bg-light-secondary dark:hover:bg-dark-secondary text-white py-2 px-4 rounded">{t('contact')}</a>
-                                    <a href="instagram.com" className="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded">{t('resume')}</a>
+                                    <a href="https://www.linkedin.com/in/lucas-caldas50/" target="_blank" className="bg-light-primary dark:bg-dark-primary hover:bg-light-secondary dark:hover:bg-dark-secondary text-white py-2 px-4 rounded">{t('contact')}</a>
+                                    <a href="https://lucastere10.github.io/portfolio" target="_blank" className="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded">{t('resume')}</a>
                                 </div>
                             </div>
                             <hr className="my-6 border-t border-gray-300" />
@@ -121,7 +121,7 @@ const About: FC<unknown> = () => {
                                 <p className="mt-2">
                                     Meu portfólio de Machine Learning abrange uma variedade de projetos que utilizam algoritmos supervisionados e não supervisionados, análise exploratória de dados e técnicas de clusterização. Cada projeto reflete minha paixão por descobrir insights significativos nos dados e minha dedicação em aplicar as melhores práticas de Machine Learning
                                 </p>
-                                <p className='font-bold ml-6 mt-2'>Link:  <a target="_blank" href='https://github.com/lucastere10/django-portfolio' className='ml-2 font-normal'>https://lucastere10.github.io/portfolio/</a></p>
+                                <p className='font-bold ml-6 mt-2'>Link:  <a target="_blank" href='https://lucastere10.github.io/portfolio/' className='ml-2 font-normal'>https://lucastere10.github.io/portfolio/</a></p>
                             </div>
                         </div>
                     </div>

@@ -140,7 +140,7 @@ const Login: FC<unknown> = () => {
                       <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">{t('RememberMe')}</label>
                     </div>
                   </div>
-                  <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">{t('ForgotPassword')}</a>
+                  <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">{t('ForgotPassword')}?</a>
                 </div>
                 <button type="submit" className="w-full text-white bg-light-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">{t('SignIn')}</button>
                 <p className="text-md font-light text-gray-500 dark:text-gray-400">{t('DontHaveAnAccount')}<a onClick={() => { router.push('/register') }} className="ml-2 text-md font-medium text-light-primary hover:underline dark:text-primary-500 cursor-pointer">{t('SignUp')}</a>
